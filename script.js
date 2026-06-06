@@ -17,36 +17,30 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// EARTH GEOMETRY
+// EARTH
 const geometry = new THREE.SphereGeometry(1, 64, 64);
 
-// TEXTURE (REAL EARTH)
 const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load(
     "https://threejsfundamentals.org/threejs/resources/images/earth-day.jpg"
 );
 
-// MATERIAL
 const material = new THREE.MeshStandardMaterial({
     map: earthTexture
 });
 
-// MESH
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
 
-// LIGHT (SUN)
+// LIGHT
 const light = new THREE.PointLight(0xffffff, 1.5);
 light.position.set(5, 3, 5);
 scene.add(light);
 
-// ANIMATION LOOP
+// ANIMATION
 function animate() {
     requestAnimationFrame(animate);
-
-    earth.rotation.y += 0.002; // REAL rotation
-
+    earth.rotation.y += 0.002;
     renderer.render(scene, camera);
 }
-
 animate();
