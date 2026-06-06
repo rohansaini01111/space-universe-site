@@ -1,5 +1,4 @@
-// BASIC CHECK
-console.log("Three.js running...");
+console.log("Three.js running");
 
 // SCENE
 const scene = new THREE.Scene();
@@ -20,27 +19,35 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// LIGHT (IMPORTANT)
+// LIGHT
 const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5, 3, 5);
 scene.add(light);
 
-// GEOMETRY
+// EARTH GEOMETRY
 const geometry = new THREE.SphereGeometry(1, 64, 64);
 
-// SIMPLE MATERIAL (TEST)
+// TEXTURE LOADER
+const textureLoader = new THREE.TextureLoader();
+
+// ✅ WORKING EARTH TEXTURE
+const earthTexture = textureLoader.load(
+    "https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/earthmap1k.jpg"
+);
+
+// MATERIAL
 const material = new THREE.MeshStandardMaterial({
-    color: 0x00aaff
+    map: earthTexture
 });
 
 // MESH
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
 
-// ANIMATE
+// ANIMATION
 function animate() {
     requestAnimationFrame(animate);
-    earth.rotation.y += 0.01;
+    earth.rotation.y += 0.002;
     renderer.render(scene, camera);
 }
 
