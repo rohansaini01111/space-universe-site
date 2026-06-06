@@ -10,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 );
-camera.position.set(1.5, 0, 2.5);
+camera.position.set(0, 0, 2.5);
 
 // RENDERER
 const renderer = new THREE.WebGLRenderer({
@@ -49,8 +49,9 @@ const material = new THREE.MeshStandardMaterial({
 // MESH
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
-earth.position.x = -1.5;
-earth.scale.set(2, 2, 2);
+earth.position.x = 0;
+earth.position.y = 0;
+earth.scale.set(2.5, 2.5, 2.5);
 // ANIMATION
 function animate() {
     requestAnimationFrame(animate);
