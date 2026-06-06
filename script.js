@@ -60,3 +60,12 @@ document.addEventListener("mousemove", (e) => {
         layer.style.transform = `translate(${x}px, ${y}px)`;
     });
 });
+window.addEventListener("scroll", () => {
+    let scrollY = window.scrollY;
+
+    let planet1 = document.getElementById("planet1");
+    let planet2 = document.getElementById("planet2");
+
+    planet1.style.transform = `translateY(${scrollY * 0.3}px)`;
+    planet2.style.transform = `translateY(${scrollY * -0.2}px)`;
+});
