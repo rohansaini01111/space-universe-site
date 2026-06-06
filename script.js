@@ -50,7 +50,7 @@ const material = new THREE.MeshStandardMaterial({
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
 earth.position.x = -1.8;
-earth.scale.set(2.2, 2.2, 2.2);
+earth.scale.set(1.3, 1.3, 1.3);
 // ANIMATION
 function animate() {
     requestAnimationFrame(animate);
