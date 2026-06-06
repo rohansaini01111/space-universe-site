@@ -1,3 +1,6 @@
+// BASIC CHECK
+console.log("Three.js running...");
+
 // SCENE
 const scene = new THREE.Scene();
 
@@ -8,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 );
-camera.position.z = 3;
+camera.position.z = 2;
 
 // RENDERER
 const renderer = new THREE.WebGLRenderer({
@@ -17,30 +20,28 @@ const renderer = new THREE.WebGLRenderer({
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-// EARTH
-const geometry = new THREE.SphereGeometry(1, 64, 64);
-
-const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load(
-    "https://threejsfundamentals.org/threejs/resources/images/earth-day.jpg"
-);
-
-const material = new THREE.MeshStandardMaterial({
-    map: earthTexture
-});
-
-const earth = new THREE.Mesh(geometry, material);
-scene.add(earth);
-
-// LIGHT
-const light = new THREE.PointLight(0xffffff, 1.5);
+// LIGHT (IMPORTANT)
+const light = new THREE.DirectionalLight(0xffffff, 1);
 light.position.set(5, 3, 5);
 scene.add(light);
 
-// ANIMATION
+// GEOMETRY
+const geometry = new THREE.SphereGeometry(1, 64, 64);
+
+// SIMPLE MATERIAL (TEST)
+const material = new THREE.MeshStandardMaterial({
+    color: 0x00aaff
+});
+
+// MESH
+const earth = new THREE.Mesh(geometry, material);
+scene.add(earth);
+
+// ANIMATE
 function animate() {
     requestAnimationFrame(animate);
-    earth.rotation.y += 0.002;
+    earth.rotation.y += 0.01;
     renderer.render(scene, camera);
 }
+
 animate();
