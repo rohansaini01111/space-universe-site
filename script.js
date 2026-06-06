@@ -51,6 +51,19 @@ const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
 earth.position.set(0, 0, 0);
 earth.scale.set(1.5, 1.5, 1.5);
+
+// 🌍 GLOW EFFECT (ADD HERE)
+const glowGeometry = new THREE.SphereGeometry(1.7, 64, 64);
+
+const glowMaterial = new THREE.MeshBasicMaterial({
+    color: 0x00aaff,
+    transparent: true,
+    opacity: 0.2
+});
+
+const glow = new THREE.Mesh(glowGeometry, glowMaterial);
+scene.add(glow);
+
 // ANIMATION
 function animate() {
     requestAnimationFrame(animate);
