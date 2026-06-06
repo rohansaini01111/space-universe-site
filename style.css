@@ -160,3 +160,6 @@ p {
     opacity: 0;
     transform: rotate(45deg);
 }
+html {
+    scroll-behavior: smooth;
+}
