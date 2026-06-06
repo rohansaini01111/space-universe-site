@@ -155,3 +155,14 @@ p {
     top: 65%;
     right: 20%;
 }
+/* ===== PLANET FLOAT ANIMATION ===== */
+
+.planet {
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(15px); }
+    100% { transform: translateY(0px); }
+}
