@@ -126,15 +126,7 @@ p {
     left: 0;
     width: 100%;
     height: 100vh;
-    z-index: 0;
-}
-#earthCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 0;
+    z-index: 0; 
 }
 
 .content {
@@ -170,9 +162,8 @@ html {
     left: 0;
     width: 100%;
     height: 100%;
-
     background: black;
-    z-index: 0;
+    z-index: 1;
 }
 
 /* REAL VISIBLE STARS */
