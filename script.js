@@ -10,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 );
-camera.position.z = 2;
+camera.position.set(1.5, 0, 2.5);
 
 // RENDERER
 const renderer = new THREE.WebGLRenderer({
@@ -20,9 +20,13 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setSize(window.innerWidth, window.innerHeight);
 
 // LIGHT
-const light = new THREE.DirectionalLight(0xffffff, 1);
-light.position.set(5, 3, 5);
+const light = new THREE.DirectionalLight(0xffffff, 1.5);
+light.position.set(5, 2, 5);
 scene.add(light);
+
+// soft ambient light
+const ambient = new THREE.AmbientLight(0x404040, 0.5);
+scene.add(ambient);
 
 // EARTH GEOMETRY
 const geometry = new THREE.SphereGeometry(1, 64, 64);
@@ -37,17 +41,20 @@ const earthTexture = textureLoader.load(
 
 // MATERIAL
 const material = new THREE.MeshStandardMaterial({
-    map: earthTexture
+    map: earthTexture,
+    roughness: 1,
+    metalness: 0
 });
 
 // MESH
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
-
+earth.position.x = -1.2;
+earth.scale.set(1.3, 1.3, 1.3);
 // ANIMATION
 function animate() {
     requestAnimationFrame(animate);
-    earth.rotation.y += 0.002;
+    earth.rotation.y += 0.001;
     renderer.render(scene, camera);
 }
 
