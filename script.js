@@ -1,79 +1,52 @@
-const canvas = document.getElementById("starfield");
-const ctx = canvas.getContext("2d");
+// SCENE
+const scene = new THREE.Scene();
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+// CAMERA
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+);
+camera.position.z = 3;
 
-let stars = [];
+// RENDERER
+const renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById("earthCanvas"),
+    antialias: true
+});
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-// create stars
-for (let i = 0; i < 200; i++) {
-    stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2,
-        speed: Math.random() * 0.5
-    });
-}
+// EARTH GEOMETRY
+const geometry = new THREE.SphereGeometry(1, 64, 64);
 
-function drawStars() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+// TEXTURE (REAL EARTH)
+const textureLoader = new THREE.TextureLoader();
+const earthTexture = textureLoader.load(
+    "https://threejsfundamentals.org/threejs/resources/images/earth-day.jpg"
+);
 
-    ctx.fillStyle = "white";
+// MATERIAL
+const material = new THREE.MeshStandardMaterial({
+    map: earthTexture
+});
 
-    stars.forEach(star => {
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fill();
-    });
-}
+// MESH
+const earth = new THREE.Mesh(geometry, material);
+scene.add(earth);
 
-function updateStars() {
-    stars.forEach(star => {
-        star.y += star.speed;
+// LIGHT (SUN)
+const light = new THREE.PointLight(0xffffff, 1.5);
+light.position.set(5, 3, 5);
+scene.add(light);
 
-        if (star.y > canvas.height) {
-            star.y = 0;
-            star.x = Math.random() * canvas.width;
-        }
-    });
-}
-
+// ANIMATION LOOP
 function animate() {
-    drawStars();
-    updateStars();
     requestAnimationFrame(animate);
+
+    earth.rotation.y += 0.002; // REAL rotation
+
+    renderer.render(scene, camera);
 }
 
 animate();
-
-/* MOUSE PARALLAX (KEEP THIS) */
-document.addEventListener("mousemove", (e) => {
-    const layers = document.querySelectorAll(".layer");
-
-    layers.forEach(layer => {
-        const speed = layer.getAttribute("data-speed");
-
-        const x = (window.innerWidth - e.pageX * speed) / 100;
-        const y = (window.innerHeight - e.pageY * speed) / 100;
-
-        layer.style.transform = `translate(${x}px, ${y}px)`;
-    });
-});
-window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY;
-
-    let planet1 = document.getElementById("planet1");
-    let planet2 = document.getElementById("planet2");
-
-    planet1.style.transform = `translateY(${scrollY * 0.3}px)`;
-    planet2.style.transform = `translateY(${scrollY * -0.2}px)`;
-});
-window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY;
-
-    document.querySelectorAll(".planet").forEach((planet, index) => {
-        let speed = (index + 1) * 0.05;
-        planet.style.transform = `translateY(${scrollY * speed}px)`;
-    });
-});
