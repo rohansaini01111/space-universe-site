@@ -174,3 +174,14 @@ p {
                 radial-gradient(circle at 70% 60%, rgba(255, 0, 150, 0.15), transparent 40%);
     z-index: 1;
 }
+#moon {
+    filter: blur(1px) brightness(0.8);
+}
+
+#saturn {
+    filter: blur(0px) brightness(1.2);
+}
+
+#earth {
+    filter: blur(0.5px);
+}
