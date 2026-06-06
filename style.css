@@ -120,3 +120,20 @@ p {
     left: 0;
     z-index: 0;
 }
+.planet {
+    position: fixed;
+    width: 150px;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+
+#planet1 {
+    top: 20%;
+    left: 10%;
+}
+
+#planet2 {
+    top: 60%;
+    right: 10%;
+}
