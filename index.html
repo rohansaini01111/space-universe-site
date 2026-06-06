@@ -6,21 +6,21 @@
     <title>Universe</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <!-- HERO SECTION -->
-   <section class="hero">
-    <canvas id="starfield" class="layer" data-speed="2"></canvas>
+    <!-- HERO -->
+    <section class="hero">
+        <canvas id="earthCanvas"></canvas>
 
-    <div class="content layer" data-speed="5">
-        <h1>WELCOME TO THE UNIVERSE</h1>
-        <p>Explore the infinite cosmos</p>
-        <div class="nebula"></div>
-    </div>
-</section>
+        <div class="content">
+            <h1>WELCOME TO THE UNIVERSE</h1>
+            <p>Explore the infinite cosmos</p>
+        </div>
+    </section>
 
-    <!-- PARALLAX SECTIONS -->
-    <section class="parallax" id="section1">
+    <!-- SECTIONS -->
+    <section class="parallax">
         <h2>The Beginning</h2>
     </section>
 
@@ -28,22 +28,9 @@
         <p>Stars are born in vast cosmic clouds.</p>
     </section>
 
-    <section class="parallax" id="section2">
-        <h2>Galaxies</h2>
-    </section>
-
-    <section class="content-section">
-        <p>Billions of galaxies fill the universe.</p>
-    </section>
-
-    <section class="parallax" id="section3">
-        <h2>Beyond</h2>
-    </section>
-
+    <!-- SCRIPTS (ORDER IMPORTANT) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="script.js"></script>
-    <canvas id="earthCanvas"></canvas>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-<script src="script.js"></script>
 </body>
 </html>
