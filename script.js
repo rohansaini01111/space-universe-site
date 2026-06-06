@@ -58,21 +58,6 @@ function animate() {
     renderer.render(scene, camera);
 }
 
-animate();
-window.addEventListener("scroll", () => {
-
-    const container = document.querySelector(".shooting-stars");
-
-    for (let i = 0; i < 3; i++) {
-
-        let star = document.createElement("div");
-        star.classList.add("shooting-star");
-
-        star.style.left = Math.random() * window.innerWidth + "px";
-        star.style.top = Math.random() * window.innerHeight + "px";
-
-        container.appendChild(star);
-
         // animation
         star.animate([
             { transform: "translate(0,0) rotate(45deg)", opacity: 1 },
