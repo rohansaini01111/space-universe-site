@@ -54,7 +54,7 @@ earth.scale.set(1.5, 1.5, 1.5);
 // ANIMATION
 function animate() {
     requestAnimationFrame(animate);
-    earth.rotation.y += 0.001;
+    earth.rotation.y += 0.01;
     renderer.render(scene, camera);
 }
 
