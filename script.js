@@ -69,3 +69,11 @@ window.addEventListener("scroll", () => {
     planet1.style.transform = `translateY(${scrollY * 0.3}px)`;
     planet2.style.transform = `translateY(${scrollY * -0.2}px)`;
 });
+window.addEventListener("scroll", () => {
+    let scrollY = window.scrollY;
+
+    document.querySelectorAll(".planet").forEach((planet, index) => {
+        let speed = (index + 1) * 0.05;
+        planet.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+});
