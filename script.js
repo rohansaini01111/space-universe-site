@@ -24,64 +24,40 @@ const light = new THREE.DirectionalLight(0xffffff, 1.5);
 light.position.set(5, 2, 5);
 scene.add(light);
 
-// soft ambient light
 const ambient = new THREE.AmbientLight(0x404040, 0.5);
 scene.add(ambient);
 
-// EARTH GEOMETRY
+// EARTH
 const geometry = new THREE.SphereGeometry(1, 64, 64);
-
-// TEXTURE LOADER
 const textureLoader = new THREE.TextureLoader();
 
-// ✅ WORKING EARTH TEXTURE
 const earthTexture = textureLoader.load(
     "https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/earthmap1k.jpg"
 );
 
-// MATERIAL
 const material = new THREE.MeshStandardMaterial({
-    map: earthTexture,
-    roughness: 1,
-    metalness: 0
+    map: earthTexture
 });
 
-// MESH
 const earth = new THREE.Mesh(geometry, material);
 scene.add(earth);
-earth.position.set(0, 0, 0);
 earth.scale.set(1.5, 1.5, 1.5);
 
-// 🌍 GLOW EFFECT (ADD HERE)
+// 🌍 GLOW
 const glowGeometry = new THREE.SphereGeometry(1.7, 64, 64);
-
 const glowMaterial = new THREE.MeshBasicMaterial({
     color: 0x00aaff,
     transparent: true,
-    opacity: 0.2
+    opacity: 0.2,
+    side: THREE.BackSide
 });
-
 const glow = new THREE.Mesh(glowGeometry, glowMaterial);
 scene.add(glow);
 
 // ANIMATION
 function animate() {
     requestAnimationFrame(animate);
-    earth.rotation.y += 0.01;
+    earth.rotation.y += 0.002;
     renderer.render(scene, camera);
 }
-
-        // animation
-        star.animate([
-            { transform: "translate(0,0) rotate(45deg)", opacity: 1 },
-            { transform: "translate(300px,300px) rotate(45deg)", opacity: 0 }
-        ], {
-            duration: 800,
-            easing: "ease-out"
-        });
-
-        setTimeout(() => {
-            star.remove();
-        }, 800);
-    }
-});
+animate();
