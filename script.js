@@ -15,7 +15,8 @@ camera.position.set(0, 0, 3);
 // RENDERER
 const renderer = new THREE.WebGLRenderer({
     canvas: document.getElementById("earthCanvas"),
-    antialias: true
+    antialias: true,
+    alpha: true   
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x000000, 0);
