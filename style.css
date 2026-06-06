@@ -120,59 +120,11 @@ p {
     left: 0;
     z-index: 0;
 }
-.planet {
-    position: fixed;
-    border-radius: 50%;
-    z-index: 2;
-    pointer-events: none;
-    filter: brightness(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.3));
-}
-#earth {
-    top: 15%;
-    left: 8%;
-}
-
-#moon {
-    top: 55%;
-    left: 18%;
-}
-
-#jupiter {
-    top: 25%;
-    right: 5%;
-}
-
-#saturn {
-    top: 65%;
-    right: 15%;
-}
-/* ===== PLANET FLOAT ANIMATION ===== */
-
-.planet {
-    animation: float 8s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(15px); }
-    100% { transform: translateY(0px); }
-}
-.nebula {
+#earthCanvas {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at 30% 40%, rgba(0, 102, 255, 0.2), transparent 40%),
-                radial-gradient(circle at 70% 60%, rgba(255, 0, 150, 0.15), transparent 40%);
-    z-index: 1;
-}
-#moon {
-    filter: blur(1px) brightness(0.8);
-}
-
-#saturn {
-    filter: blur(0px) brightness(1.2);
-}
-
-#earth {
-    filter: blur(0.5px);
+    height: 100vh;
+    z-index: 0;
 }
