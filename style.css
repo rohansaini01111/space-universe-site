@@ -120,3 +120,38 @@ p {
     left: 0;
     z-index: 0;
 }
+.planet {
+    position: fixed;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    filter: brightness(1.2) drop-shadow(0 0 20px rgba(255,255,255,0.3));
+}
+
+/* EARTH */
+#earth {
+    width: 120px;
+    top: 20%;
+    left: 10%;
+}
+
+/* MOON */
+#moon {
+    width: 60px;
+    top: 60%;
+    left: 20%;
+}
+
+/* JUPITER */
+#jupiter {
+    width: 200px;
+    top: 30%;
+    right: 10%;
+}
+
+/* SATURN */
+#saturn {
+    width: 180px;
+    top: 65%;
+    right: 20%;
+}
