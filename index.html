@@ -4,33 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universe</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="stars-bg"></div>
-    
-    <!-- SECTIONS -->
-    <section class="parallax">
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <!-- ⭐ STARS BACKGROUND -->
+        <div class="stars"></div>
+
+        <!-- 🌍 EARTH CANVAS -->
+        <canvas id="earthCanvas"></canvas>
+
+        <!-- TEXT CONTENT -->
+        <div class="content">
+            <h1>WELCOME TO THE UNIVERSE</h1>
+            <p>Explore the infinite cosmos</p>
+        </div>
+
+    </section>
+
+    <!-- PARALLAX SECTION 1 -->
+    <section id="section1" class="parallax">
         <h2>The Beginning</h2>
     </section>
 
+    <!-- NORMAL CONTENT -->
     <section class="content-section">
         <p>Stars are born in vast cosmic clouds.</p>
     </section>
-</section>
 
-<canvas id="earthCanvas"></canvas>
-    
-</body>
-    <!-- SCRIPTS (ORDER IMPORTANT) -->
+    <!-- PARALLAX SECTION 2 -->
+    <section id="section2" class="parallax">
+        <h2>Galaxies</h2>
+    </section>
+
+    <!-- NORMAL CONTENT -->
+    <section class="content-section">
+        <p>Galaxies contain billions of stars.</p>
+    </section>
+
+    <!-- PARALLAX SECTION 3 -->
+    <section id="section3" class="parallax">
+        <h2>The Unknown</h2>
+    </section>
+
+    <!-- SCROLL BUTTON -->
+    <a href="#section1" style="position:fixed; top:20px; right:20px; color:white;">
+        Go Down ↓
+    </a>
+
+    <!-- SCRIPTS (IMPORTANT ORDER) -->
     <script src="https://unpkg.com/three@0.128.0/build/three.min.js"></script>
     <script src="script.js"></script>
 
 </body>
 </html>
-<a href="#section1" style="position:fixed; top:20px; right:20px; color:white;">
-    Go Down ↓
-</a>
-<section id="section1">
