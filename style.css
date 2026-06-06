@@ -45,8 +45,32 @@ body {
 /* TEXT */
 h1 {
     font-size: 3rem;
-    letter-spacing: 4px;
-    animation: fadeUp 2s ease;
+    letter-spacing: 6px;
+
+    /* ✨ base subtle glow */
+    text-shadow: 
+        0 0 5px rgba(255,255,255,0.6),
+        0 0 10px rgba(0,150,255,0.3);
+
+    /* 🎬 animations */
+    animation: fadeUp 2s ease, glowPulse 5s infinite;
+}
+@keyframes glowPulse {
+    0% {
+        text-shadow: 
+            0 0 5px rgba(255,255,255,0.5),
+            0 0 10px rgba(0,150,255,0.3);
+    }
+    50% {
+        text-shadow: 
+            0 0 15px rgba(255,255,255,0.9),
+            0 0 30px rgba(0,150,255,0.6);
+    }
+    100% {
+        text-shadow: 
+            0 0 5px rgba(255,255,255,0.5),
+            0 0 10px rgba(0,150,255,0.3);
+    }
 }
 
 p {
