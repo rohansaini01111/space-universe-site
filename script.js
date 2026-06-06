@@ -18,6 +18,7 @@ const renderer = new THREE.WebGLRenderer({
     antialias: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x000000, 0);
 
 // LIGHT
 const light = new THREE.DirectionalLight(0xffffff, 1.5);
