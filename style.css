@@ -70,3 +70,45 @@ p {
         transform: translateY(0);
     }
 }
+/* PARALLAX BASE */
+.parallax {
+    height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* DIFFERENT SPACE BACKGROUNDS */
+#section1 {
+    background-image: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa');
+}
+
+#section2 {
+    background-image: url('https://images.unsplash.com/photo-1462331940025-496dfbfc7564');
+}
+
+#section3 {
+    background-image: url('https://images.unsplash.com/photo-1454789548928-9efd52dc4031');
+}
+
+/* TEXT STYLE */
+.parallax h2 {
+    font-size: 3rem;
+    background: rgba(0,0,0,0.5);
+    padding: 20px;
+}
+
+/* NORMAL CONTENT */
+.content-section {
+    height: 50vh;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
