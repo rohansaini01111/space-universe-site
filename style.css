@@ -188,3 +188,20 @@ p {
   opacity: 0.6;
   z-index: 0;
 }
+.parallax h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+
+  text-shadow: 
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 25px rgba(0,150,255,0.6);
+}
+.parallax .inner {
+  animation: floatText 6s ease-in-out infinite;
+}
+
+@keyframes floatText {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
