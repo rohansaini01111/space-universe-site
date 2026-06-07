@@ -167,3 +167,24 @@ p {
   opacity: 1;
   transform: translateY(0);
 }
+/* FAR STARS */
+.stars-far {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: moveStars 120s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* NEAR STARS */
+.stars-near {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: moveStars 40s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+}
