@@ -139,7 +139,7 @@ p {
   width: 200%;
   height: 200%;
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 120s linear infinite;
+  animation: moveStars 80s linear infinite;
   opacity: 0.3;
   z-index: 0;
 }
