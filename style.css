@@ -149,3 +149,11 @@ p {
   position: relative;
   z-index: 1;
 }
+.parallax h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+
+  text-shadow: 
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 20px rgba(0,150,255,0.4);
+}
