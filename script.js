@@ -1,88 +1,69 @@
-console.log("Three.js running");
 
-// SCENE
-const scene = new THREE.Scene();
+// ===============================
+// 🌍 HERO TEXT + PAGE FADE SYSTEM
+// ===============================
 
-// CAMERA
-const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-);
-camera.position.set(0, 0, 3);
+// Select elements safely
+const heroText = document.querySelector('.hero .content');
+const fadeSections = document.querySelectorAll('.fade-section');
 
-// RENDERER
-const renderer = new THREE.WebGLRenderer({
-    canvas: document.getElementById("earthCanvas"),
-    antialias: true,
-    alpha: true   
-});
-renderer.setSize(window.innerWidth, window.innerHeight);
-renderer.setClearColor(0x000000, 0);
+// Main scroll handler (single optimized system)
+function handleScroll() {
 
-// LIGHT
-const light = new THREE.DirectionalLight(0xffffff, 1.5);
-light.position.set(5, 2, 5);
-scene.add(light);
+  let scrollY = window.scrollY;
 
-const ambient = new THREE.AmbientLight(0x404040, 0.5);
-scene.add(ambient);
+  // ===============================
+  // 🎬 HERO TEXT FADE + ZOOM
+  // ===============================
+  if (heroText) {
 
-// EARTH
-const geometry = new THREE.SphereGeometry(1, 64, 64);
-const textureLoader = new THREE.TextureLoader();
+    // Fade out
+    let opacity = 1 - scrollY / 400;
+    if (opacity < 0) opacity = 0;
 
-const earthTexture = textureLoader.load(
-    "https://raw.githubusercontent.com/jeromeetienne/threex.planets/master/images/earthmap1k.jpg"
-);
+    // Scale down
+    let scale = 1 - scrollY / 1000;
+    if (scale < 0.8) scale = 0.8;
 
-const material = new THREE.MeshStandardMaterial({
-    map: earthTexture
-});
+    heroText.style.opacity = opacity;
+    heroText.style.transform = `translate(-50%, -50%) scale(${scale})`;
+  }
 
-const earth = new THREE.Mesh(geometry, material);
-scene.add(earth);
-earth.scale.set(1.5, 1.5, 1.5);
 
-// 🌍 GLOW
-const glowGeometry = new THREE.SphereGeometry(1.55, 64, 64);
+  // ===============================
+  // ✨ PAGE 2 FADE-IN EFFECT
+  // ===============================
+  fadeSections.forEach(section => {
+    const rect = section.getBoundingClientRect();
 
-const glowMaterial = new THREE.MeshBasicMaterial({
-    color: 0x3399ff,
-    transparent: true,
-    opacity: 0.05,
-    side: THREE.BackSide,
-    blending: THREE.AdditiveBlending
-});
-
-const glow = new THREE.Mesh(glowGeometry, glowMaterial);
-scene.add(glow);
-
-// ANIMATION
-function animate() {
-    requestAnimationFrame(animate);
-    earth.rotation.y += 0.002;
-    renderer.render(scene, camera);
-}
-animate();
-const sections = document.querySelectorAll('.fade-section');
-
-window.addEventListener('scroll', () => {
-  sections.forEach(section => {
-    const top = section.getBoundingClientRect().top;
-    const trigger = window.innerHeight * 0.8;
-
-    if (top < trigger) {
+    if (rect.top < window.innerHeight - 100) {
       section.classList.add('show');
     }
   });
-});
+
+}
+
+
+// ===============================
+// 🚀 EVENT LISTENERS
+// ===============================
+window.addEventListener('scroll', handleScroll);
+window.addEventListener('load', handleScroll);
+
+
+// ==========================================
+// 🌌 (OPTIONAL READY FOR NEXT LEVEL)
+// ==========================================
+
+// Future upgrade placeholder:
+// 👉 Stars speed control
+// 👉 Earth zoom (Three.js)
+// 👉 Warp effect
+
+// Example (disabled for now):
+/*
 window.addEventListener('scroll', () => {
-  const heroText = document.querySelector('.hero .content');
-
-  let scroll = window.scrollY;
-
-  heroText.style.opacity = 1 - scroll / 400;
-  heroText.style.transform = `translate(-50%, -50%) scale(${1 - scroll / 1000})`;
+  let speed = 80 - window.scrollY * 0.05;
+  document.querySelector('.stars-near').style.animationDuration = speed + 's';
 });
+*/
