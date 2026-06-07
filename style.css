@@ -245,3 +245,52 @@ html {
     transform: translateY(0);
   }
 }
+/* ===== FIX HERO OVERLAY ISSUE ===== */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Hero text box */
+.hero .content {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px 40px;
+  color: white;
+  text-align: center;
+}
+
+/* ===== PAGE 2 CLEAN SECTION ===== */
+
+.parallax {
+  height: 100vh;
+  background: black; /* IMPORTANT: remove Earth bg */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+/* Inner content */
+.parallax .inner {
+  max-width: 800px;
+  padding: 20px;
+}
+
+/* Heading */
+.parallax h2 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+/* Paragraph */
+.parallax p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+}
