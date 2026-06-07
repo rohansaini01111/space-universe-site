@@ -53,6 +53,8 @@ html {
 h1 {
   font-size: 3rem;
   letter-spacing: 6px;
+  white-space: nowrap;
+  
   text-shadow: 
     0 0 5px rgba(255,255,255,0.6),
     0 0 10px rgba(0,150,255,0.3);
