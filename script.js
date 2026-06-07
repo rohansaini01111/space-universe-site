@@ -55,15 +55,4 @@ window.addEventListener('load', handleScroll);
 // 🌌 (OPTIONAL READY FOR NEXT LEVEL)
 // ==========================================
 
-// Future upgrade placeholder:
-// 👉 Stars speed control
-// 👉 Earth zoom (Three.js)
-// 👉 Warp effect
-
-// Example (disabled for now):
-/*
-window.addEventListener('scroll', () => {
-  let speed = 80 - window.scrollY * 0.05;
-  document.querySelector('.stars-near').style.animationDuration = speed + 's';
-});
-*/
+console.log("JS WORKING");
