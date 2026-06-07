@@ -55,4 +55,4 @@ window.addEventListener('load', handleScroll);
 // 🌌 (OPTIONAL READY FOR NEXT LEVEL)
 // ==========================================
 
-console.log("JS WORKING");
+
