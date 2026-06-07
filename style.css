@@ -127,3 +127,25 @@ p {
       0 0 10px rgba(0,150,255,0.3);
   }
 }
+/* 🌌 PAGE 2 STARS BACKGROUND */
+.parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: moveStars 120s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+}
+
+/* content ko upar lao */
+.parallax .inner {
+  position: relative;
+  z-index: 1;
+}
