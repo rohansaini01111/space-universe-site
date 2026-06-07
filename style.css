@@ -1,4 +1,6 @@
-/* ===== RESET ===== */
+/* ==========================================
+   🌌 RESET
+========================================== */
 body {
   margin: 0;
   padding: 0;
@@ -11,24 +13,50 @@ html {
   scroll-behavior: smooth;
 }
 
-/* ===== HERO SECTION ===== */
+
+/* ==========================================
+   🌌 GLOBAL STARS (DEPTH EFFECT)
+========================================== */
+
+/* FAR STARS */
+.stars-far {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: moveStars 120s linear infinite;
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* NEAR STARS */
+.stars-near {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: moveStars 40s linear infinite;
+  opacity: 0.6;
+  z-index: 0;
+  pointer-events: none;
+}
+
+
+/* ==========================================
+   🌍 HERO SECTION
+========================================== */
 .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 
-/* ⭐ STARS */
-.stars {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 80s linear infinite;
-  z-index: 0;
-}
-
-/* 🌍 EARTH */
+/* Earth canvas */
 #earthCanvas {
   position: absolute;
   top: 0;
@@ -38,126 +66,75 @@ html {
   z-index: 1;
 }
 
-/* 📝 HERO TEXT */
+/* Hero text */
 .hero .content {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
   z-index: 2;
 }
-/* ✨ TEXT STYLE */
+
+/* Heading */
 h1 {
   font-size: 3rem;
   letter-spacing: 6px;
   white-space: nowrap;
-  
-  text-shadow: 
+
+  text-shadow:
     0 0 5px rgba(255,255,255,0.6),
-    0 0 10px rgba(0,150,255,0.3);
-  animation: fadeUp 2s ease, glowPulse 5s infinite;
+    0 0 15px rgba(0,150,255,0.5);
+
+  animation: glowPulse 5s infinite;
 }
 
+/* Paragraph */
 p {
   font-size: 1.2rem;
 }
 
-/* ===== PAGE 2 ===== */
+
+/* ==========================================
+   ✨ PAGE 2 (PARALLAX SECTION)
+========================================== */
 .parallax {
   height: 100vh;
-  background: black;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  background: transparent;
 }
 
-/* INNER CONTENT */
+/* Content container */
 .parallax .inner {
   max-width: 800px;
   padding: 20px;
-  color: white;
+  position: relative;
+  z-index: 2;
 }
 
-/* HEADING */
+/* Heading */
 .parallax h2 {
   font-size: 3rem;
   margin-bottom: 20px;
+
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 25px rgba(0,150,255,0.6);
 }
 
-/* PARAGRAPH */
+/* Text */
 .parallax p {
   font-size: 1.2rem;
   opacity: 0.8;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
-}
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes glowPulse {
-  0% {
-    text-shadow: 
-      0 0 5px rgba(255,255,255,0.5),
-      0 0 10px rgba(0,150,255,0.3);
-  }
-  50% {
-    text-shadow: 
-      0 0 15px rgba(255,255,255,0.9),
-      0 0 30px rgba(0,150,255,0.6);
-  }
-  100% {
-    text-shadow: 
-      0 0 5px rgba(255,255,255,0.5),
-      0 0 10px rgba(0,150,255,0.3);
-  }
-}
-/* 🌌 PAGE 2 STARS BACKGROUND */
-.parallax {
-  position: relative;
-  overflow: hidden;
-}
-
-.parallax::before {
-  content: "";
-  position: absolute;
-  width: 200%;
-  height: 200%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 80s linear infinite;
-  opacity: 0.3;
-  z-index: 0;
-}
-
-/* content ko upar lao */
-.parallax .inner {
-  position: relative;
-  z-index: 1;
-}
-.parallax h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-
-  text-shadow: 
-    0 0 10px rgba(255,255,255,0.6),
-    0 0 20px rgba(0,150,255,0.4);
-}
-
+/* ==========================================
+   🎬 FADE ANIMATION (PAGE 2)
+========================================== */
 .fade-section {
   opacity: 0;
   transform: scale(0.9) translateY(50px);
@@ -169,38 +146,32 @@ p {
   transform: scale(1) translateY(0);
 }
 
-/* FAR STARS */
-.stars-far {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 120s linear infinite;
-  opacity: 0.3;
-  z-index: 0;
+
+/* ==========================================
+   ✨ ANIMATIONS
+========================================== */
+
+/* Stars movement */
+@keyframes moveStars {
+  from { background-position: 0 0; }
+  to { background-position: 10000px 5000px; }
 }
 
-/* NEAR STARS */
-.stars-near {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 40s linear infinite;
-  opacity: 0.6;
-  z-index: 0;
-}
-.parallax h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-
-  text-shadow: 
-    0 0 10px rgba(255,255,255,0.6),
-    0 0 25px rgba(0,150,255,0.6);
-}
-
-@keyframes floatText {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
-  100% { transform: translateY(0); }
+/* Glow effect */
+@keyframes glowPulse {
+  0% {
+    text-shadow:
+      0 0 5px rgba(255,255,255,0.5),
+      0 0 10px rgba(0,150,255,0.3);
+  }
+  50% {
+    text-shadow:
+      0 0 15px rgba(255,255,255,0.9),
+      0 0 30px rgba(0,150,255,0.6);
+  }
+  100% {
+    text-shadow:
+      0 0 5px rgba(255,255,255,0.5),
+      0 0 10px rgba(0,150,255,0.3);
+  }
 }
