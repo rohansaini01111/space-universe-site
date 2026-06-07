@@ -160,7 +160,7 @@ p {
 
 .fade-section {
   opacity: 0 !important;
-  transform: scale(0.9) translateY(50px) !important;
+  transform: scale(0.9) translateY(50px) 
   transition: all 1s ease;
 }
 
