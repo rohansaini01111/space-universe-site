@@ -78,3 +78,11 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+window.addEventListener('scroll', () => {
+  const heroText = document.querySelector('.hero .content');
+
+  let scroll = window.scrollY;
+
+  heroText.style.opacity = 1 - scroll / 400;
+  heroText.style.transform = `translate(-50%, -50%) scale(${1 - scroll / 1000})`;
+});
