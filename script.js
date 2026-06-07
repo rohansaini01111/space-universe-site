@@ -66,3 +66,15 @@ function animate() {
     renderer.render(scene, camera);
 }
 animate();
+const sections = document.querySelectorAll('.fade-section');
+
+window.addEventListener('scroll', () => {
+  sections.forEach(section => {
+    const top = section.getBoundingClientRect().top;
+    const trigger = window.innerHeight * 0.8;
+
+    if (top < trigger) {
+      section.classList.add('show');
+    }
+  });
+});
