@@ -34,7 +34,7 @@ const earthTexture = textureLoader.load("earth.jpg");
     "https://threejs.org/examples/textures/earth_atmos_2048.jpg"
 );
 
-const material = new THREE.MeshBasicMaterial({
+const material = new THREE.MeshStandardMaterial({
     map: earthTexture
 });
 
