@@ -42,13 +42,12 @@ scene.add(earth);
 // =======================
 // LIGHT (optional but future use)
 // =======================
-const light = new THREE.PointLight(0xffffff, 1);
+const light = new THREE.PointLight(0xffffff, 3);
 light.position.set(5, 3, 5);
 scene.add(light);
 
-const ambientLight = new THREE.AmbientLight(0x404040, 1);
+const ambientLight = new THREE.AmbientLight(0x404040, 2);
 scene.add(ambientLight);
-
 // =======================
 // RESPONSIVE RESIZE
 // =======================
