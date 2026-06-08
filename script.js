@@ -29,7 +29,7 @@ document.body.appendChild(renderer.domElement);
 // =======================
 const geometry = new THREE.SphereGeometry(1, 64, 64);
 camera.position.z = 3;
-earth.scale.set(0.85, 0.85, 0.85);
+earth.scale.set(0.95, 0.95, 0.95);
 
 const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load("earth.jpg");
