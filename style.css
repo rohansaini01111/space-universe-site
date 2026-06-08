@@ -183,9 +183,10 @@ canvas {
 }
 .container {
     position: relative;
-    z-index: 2;   /* 🔥 text upar rahega */
+    z-index: 2;
     text-align: center;
-    top: 40vh;    /* thoda center me lane ke liye */
+    top: 40vh;
+    width: 100%;
 }
 
 canvas {
