@@ -12,7 +12,7 @@ const camera = new THREE.PerspectiveCamera(
     0.1,
     1000
 );
-camera.position.z = 2
+camera.position.z = 3;
 
 // =======================
 // RENDERER
@@ -27,8 +27,9 @@ document.body.appendChild(renderer.domElement);
 // =======================
 // EARTH
 // =======================
-const geometry = new THREE.SphereGeometry(1.2, 64, 64);
+const geometry = new THREE.SphereGeometry(1, 64, 64);
 camera.position.z = 3;
+earth.scale.set(0.85, 0.85, 0.85);
 
 const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load("earth.jpg");
