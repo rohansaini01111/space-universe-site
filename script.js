@@ -27,20 +27,22 @@ document.body.appendChild(renderer.domElement);
 // =======================
 // EARTH
 // =======================
+// 1. geometry
 const geometry = new THREE.SphereGeometry(1, 64, 64);
-camera.position.z = 3;
-earth.scale.set(0.95, 0.95, 0.95);
 
+// 2. texture
 const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load(
-  "https://raw.githubusercontent.com/rohanasini01111/space-universe-site/main/earth.jpg"
-);
+const earthTexture = textureLoader.load("earth.jpg");
 
+// 3. material
 const material = new THREE.MeshStandardMaterial({
     map: earthTexture
 });
 
+// 4. mesh (🔥 yaha earth banti hai)
 const earth = new THREE.Mesh(geometry, material);
+
+// 5. scene me add
 scene.add(earth);
 
 // =======================
