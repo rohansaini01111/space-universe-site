@@ -31,8 +31,6 @@ const geometry = new THREE.SphereGeometry(1, 64, 64);
 
 const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load("earth.jpg");
-    "https://threejs.org/examples/textures/earth_atmos_2048.jpg"
-);
 
 const material = new THREE.MeshStandardMaterial({
     map: earthTexture
