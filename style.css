@@ -1,200 +1,105 @@
-/* ==========================================
-   🌌 RESET
-========================================== */
+/* =======================
+   RESET + BASE
+======================= */
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background: black;
-  color: white;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background: black;
+    font-family: Arial, sans-serif;
+    color: white;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-
-/* ==========================================
-   🌌 GLOBAL STARS (DEPTH EFFECT)
-========================================== */
-
-/* FAR STARS */
-.stars-far {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 120s linear infinite;
-  opacity: 0.3;
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* NEAR STARS */
-.stars-near {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url('https://www.transparenttextures.com/patterns/stardust.png');
-  animation: moveStars 40s linear infinite;
-  opacity: 0.3;
-  z-index: -1;
-  pointer-events: none;
-}
-
-
-/* ==========================================
-   🌍 HERO SECTION
-========================================== */
-.hero {
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* Earth canvas */
-#earthCanvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  z-index: 1;
-}
-
-/* Hero text */
-.hero .content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 2;
-}
-
-/* Heading */
-h1 {
-  font-size: 3rem;
-  letter-spacing: 6px;
-  white-space: nowrap;
-
-  text-shadow:
-    0 0 5px rgba(255,255,255,0.6),
-    0 0 15px rgba(0,150,255,0.5);
-
-  animation: glowPulse 5s infinite;
-}
-
-/* Paragraph */
-p {
-  font-size: 1.2rem;
-}
-
-
-/* ==========================================
-   ✨ PAGE 2 (PARALLAX SECTION)
-========================================== */
-.parallax {
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: transparent;
-}
-
-/* Content container */
-.parallax .inner {
-  max-width: 800px;
-  padding: 20px;
-  position: relative;
-  z-index: 2;
-}
-
-/* Heading */
-.parallax h2 {
-  font-size: 3rem;
-  margin-bottom: 20px;
-
-  text-shadow:
-    0 0 10px rgba(255,255,255,0.6),
-    0 0 25px rgba(0,150,255,0.6);
-}
-
-/* Text */
-.parallax p {
-  font-size: 1.2rem;
-  opacity: 0.8;
-}
-
-
-/* ==========================================
-   🎬 FADE ANIMATION (PAGE 2)
-========================================== */
-.fade-section {
-  opacity: 0;
-  transform: scale(0.9) translateY(50px);
-  transition: all 1s ease;
-}
-
-.fade-section.show {
-  opacity: 1;
-  transform: scale(1) translateY(0);
-}
-
-
-/* ==========================================
-   ✨ ANIMATIONS
-========================================== */
-
-/* Stars movement */
-@keyframes moveStars {
-  from { background-position: 0 0; }
-  to { background-position: 10000px 5000px; }
-}
-
-/* Glow effect */
-@keyframes glowPulse {
-  0% {
-    text-shadow:
-      0 0 5px rgba(255,255,255,0.5),
-      0 0 10px rgba(0,150,255,0.3);
-  }
-  50% {
-    text-shadow:
-      0 0 15px rgba(255,255,255,0.9),
-      0 0 30px rgba(0,150,255,0.6);
-  }
-  100% {
-    text-shadow:
-      0 0 5px rgba(255,255,255,0.5),
-      0 0 10px rgba(0,150,255,0.3);
-  }
-}
+/* =======================
+   🌍 THREE.JS CANVAS
+======================= */
 canvas {
-    position: fixed;   /* 🔥 important */
+    position: fixed;   /* 🔥 Earth scroll pe move nahi hogi */
     top: 0;
     left: 0;
-    z-index: 1;
-}
-.container {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    top: 40vh;
     width: 100%;
+    height: 100%;
+
+    z-index: 1;        /* Earth background me */
 }
 
-canvas {
+/* =======================
+   ✨ STARS BACKGROUND
+======================= */
+body::before {
+    content: "";
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;     /* 🔥 add karo */
-    height: 100%;    /* 🔥 add karo */
-    z-index: 1;
+    width: 100%;
+    height: 100%;
+
+    background: url("https://www.transparenttextures.com/patterns/stardust.png");
+
+    opacity: 0.4;
+    z-index: 0;   /* stars sabse peeche */
 }
 
+/* =======================
+   📄 PAGE SECTIONS
+======================= */
+.page1 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page2 {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =======================
+   🧠 TEXT CONTAINER
+======================= */
+.container {
+    position: relative;
+    z-index: 2;   /* text sabse upar */
+
+    text-align: center;
+}
+
+/* =======================
+   ✍️ TEXT STYLING
+======================= */
+h1 {
+    font-size: 48px;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+p {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-top: 10px;
+}
+
+/* =======================
+   🔥 FADE ANIMATION (PAGE 2)
+======================= */
+.fade-text {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.fade-text.show {
+    animation: fadeUp 1.5s ease forwards;
+}
+
+/* =======================
+   🎬 KEYFRAMES
+======================= */
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
