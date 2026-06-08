@@ -27,7 +27,8 @@ document.body.appendChild(renderer.domElement);
 // =======================
 // EARTH
 // =======================
-const geometry = new THREE.SphereGeometry(1.8, 64, 64);
+const geometry = new THREE.SphereGeometry(1.2, 64, 64);
+camera.position.z = 3;
 
 const textureLoader = new THREE.TextureLoader();
 const earthTexture = textureLoader.load("earth.jpg");
