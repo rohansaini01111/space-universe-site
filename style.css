@@ -42,7 +42,7 @@ html {
   background: url('https://www.transparenttextures.com/patterns/stardust.png');
   animation: moveStars 40s linear infinite;
   opacity: 0.6;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
 }
 
@@ -174,4 +174,10 @@ p {
       0 0 5px rgba(255,255,255,0.5),
       0 0 10px rgba(0,150,255,0.3);
   }
+}
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;   
 }
