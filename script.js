@@ -32,7 +32,9 @@ camera.position.z = 3;
 earth.scale.set(0.95, 0.95, 0.95);
 
 const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load("earth.jpg");
+const earthTexture = textureLoader.load(
+  "https://raw.githubusercontent.com/rohanasini01111/space-universe-site/main/earth.jpg"
+);
 
 const material = new THREE.MeshStandardMaterial({
     map: earthTexture
