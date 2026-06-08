@@ -187,3 +187,13 @@ canvas {
     text-align: center;
     top: 40vh;    /* thoda center me lane ke liye */
 }
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;     /* 🔥 add karo */
+    height: 100%;    /* 🔥 add karo */
+    z-index: 1;
+}
+
