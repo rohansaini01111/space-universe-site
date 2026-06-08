@@ -1,58 +1,78 @@
+// =======================
+// SCENE SETUP
+// =======================
+const scene = new THREE.Scene();
 
-// ===============================
-// 🌍 HERO TEXT + PAGE FADE SYSTEM
-// ===============================
+// =======================
+// CAMERA
+// =======================
+const camera = new THREE.PerspectiveCamera(
+    75,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+);
+camera.position.z = 3;
 
-// Select elements safely
-const heroText = document.querySelector('.hero .content');
-const fadeSections = document.querySelectorAll('.fade-section');
+// =======================
+// RENDERER
+// =======================
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setPixelRatio(window.devicePixelRatio);
 
-// Main scroll handler (single optimized system)
-function handleScroll() {
+// Canvas add to body
+document.body.appendChild(renderer.domElement);
 
-  let scrollY = window.scrollY;
+// =======================
+// EARTH
+// =======================
+const geometry = new THREE.SphereGeometry(1, 64, 64);
 
-  // ===============================
-  // 🎬 HERO TEXT FADE + ZOOM
-  // ===============================
-  if (heroText) {
+const textureLoader = new THREE.TextureLoader();
+const earthTexture = textureLoader.load(
+    "https://threejs.org/examples/textures/earth_atmos_2048.jpg"
+);
 
-    // Fade out
-    let opacity = 1 - scrollY / 400;
-    if (opacity < 0) opacity = 0;
+const material = new THREE.MeshBasicMaterial({
+    map: earthTexture
+});
 
-    // Scale down
-    let scale = 1 - scrollY / 1000;
-    if (scale < 0.8) scale = 0.8;
+const earth = new THREE.Mesh(geometry, material);
+scene.add(earth);
 
-    heroText.style.opacity = opacity;
-    heroText.style.transform = `translate(-50%, -50%) scale(${scale})`;
-  }
+// =======================
+// LIGHT (optional but future use)
+// =======================
+const light = new THREE.PointLight(0xffffff, 1);
+light.position.set(5, 3, 5);
+scene.add(light);
 
+// =======================
+// RESPONSIVE RESIZE
+// =======================
+window.addEventListener("resize", () => {
+    // Update sizes
+    const width = window.innerWidth;
+    const height = window.innerHeight;
 
-  // ===============================
-  // ✨ PAGE 2 FADE-IN EFFECT
-  // ===============================
-  fadeSections.forEach(section => {
-    const rect = section.getBoundingClientRect();
+    renderer.setSize(width, height);
 
-    if (rect.top < window.innerHeight - 100) {
-      section.classList.add('show');
-    }
-  });
+    // Update camera
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+});
 
+// =======================
+// ANIMATION LOOP (CORE)
+// =======================
+function animate() {
+    requestAnimationFrame(animate);
+
+    // Earth rotation
+    earth.rotation.y += 0.002;
+
+    renderer.render(scene, camera);
 }
 
-
-// ===============================
-// 🚀 EVENT LISTENERS
-// ===============================
-window.addEventListener('scroll', handleScroll);
-window.addEventListener('load', handleScroll);
-
-
-// ==========================================
-// 🌌 (OPTIONAL READY FOR NEXT LEVEL)
-// ==========================================
-
-
+animate();
