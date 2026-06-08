@@ -30,7 +30,7 @@ document.body.appendChild(renderer.domElement);
 const geometry = new THREE.SphereGeometry(1, 64, 64);
 
 const textureLoader = new THREE.TextureLoader();
-const earthTexture = textureLoader.load(
+const earthTexture = textureLoader.load("earth.jpg");
     "https://threejs.org/examples/textures/earth_atmos_2048.jpg"
 );
 
